@@ -5,7 +5,7 @@ from lib.generator import generate
 
 
 def main():
-    argparser = argparse.ArgumentParser()
+    argparser = argparse.ArgumentParser(prog="python -m cli")
     argparser.add_argument('--size', type=float, default=10, metavar="MM", help="Base QR code size (in millimeters), default: 10")
     argparser.add_argument('--margin', type=float, default=2, metavar="MM", help="Margin between QR codes (in millimeters), default: 2")
     argparser.add_argument('--prefix', type=str, default="", metavar="STR", help="Number prefix, default: empty")

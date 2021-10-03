@@ -26,19 +26,19 @@ python -m cli
 ## Advanced
 
 ```
-python -m cli [-h] [--size MM] [--margin MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--no-label] [--font-size NUM] [--label-spacing MM] [-o PATH]
-~~~~
+usage: python -m cli [-h] [--size MM] [--margin MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--no-label] [--font-size NUM] [--label-spacing MM] [-o PATH]
+
 optional arguments:
--h, --help            show this help message and exit
---size MM             Base QR code size (in millimeters), default: 10
---margin MM           Margin between QR codes (in millimeters), default: 2
---prefix STR          Number prefix, default: empty
---suffix STR          Number suffix, default: empty
---digits NUM          Number of digits, default: 5
---start NUM           Number to start with, default: 0
---no-label            Skip label generation, default: to generate
---font-size NUM       Font size for label text, default: 5
---label-spacing MM    Vertical spacing between QR code and its label, default: 0.4
--o PATH, --output PATH
-                      Output path for generated PDF file, default: codes.pdf
+  -h, --help            show this help message and exit
+  --size MM             Base QR code size (in millimeters), default: 10
+  --margin MM           Margin between QR codes (in millimeters), default: 2
+  --prefix STR          Number prefix, default: empty
+  --suffix STR          Number suffix, default: empty
+  --digits NUM          Number of digits, default: 5
+  --start NUM           Number to start with, default: 0
+  --no-label            Skip label generation, default: to generate
+  --font-size NUM       Font size for label text, default: 5
+  --label-spacing MM    Vertical spacing between QR code and its label, default: 0.4
+  -o PATH, --output PATH
+                        Output path for generated PDF file, default: codes.pdf
 ```
