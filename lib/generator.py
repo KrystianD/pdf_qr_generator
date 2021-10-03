@@ -2,7 +2,6 @@ import math
 from io import BytesIO
 
 import qrcode
-from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase.pdfmetrics import getAscent
 from reportlab.pdfgen.canvas import Canvas
 
@@ -32,13 +31,15 @@ def mm(x):
     return x * reportlab.lib.units.mm
 
 
-def generate(base_size_mm: float = 10, margin_mm: float = 2, stride_x_mm: float = 0, stride_y_mm: float = 0,
+def generate(page_width_mm: float, page_height_mm: float,
+             base_size_mm: float = 10, margin_mm: float = 2, stride_x_mm: float = 0, stride_y_mm: float = 0,
              prefix: str = "", suffix: str = "", digits: int = 5, start: int = 0,
              generate_label: bool = True, label_spacing_mm: float = 0.4, font_size: int = 5):
     f = BytesIO()
 
-    page_width, page_height = A4
-    canvas = Canvas(f, pagesize=A4)
+    page_width = mm(page_width_mm)
+    page_height = mm(page_height_mm)
+    canvas = Canvas(f, pagesize=(page_width, page_height))
 
     font = "Helvetica", font_size
     label_height = getAscent(*font) + mm(label_spacing_mm)

@@ -26,10 +26,13 @@ python -m cli
 ## Advanced
 
 ```
-usage: python -m cli [-h] [--size MM] [--margin MM] [--stride-x MM] [--stride-y MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--no-label] [--font-size NUM] [--label-spacing MM] [-o PATH]
+usage: python -m cli [-h] [--page-size SIZE] [--landscape] [--size MM] [--margin MM] [--stride-x MM] [--stride-y MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--no-label] [--font-size NUM]
+                     [--label-spacing MM] [-o PATH]
 
 optional arguments:
   -h, --help            show this help message and exit
+  --page-size SIZE      Page size. Possible values are predefined page format (A4, A5, etc) or dimensions millimeters (20x30), default: A4
+  --landscape           Landscape orientation. For predefined formats only, default: portrait
   --size MM             Base QR code size (in millimeters), default: 10
   --margin MM           Margin between QR codes (in millimeters), default: 2
   --stride-x MM         Horizontal distance between QR code tiles (in millimeters), default: 0
