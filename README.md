@@ -26,12 +26,14 @@ python -m cli
 ## Advanced
 
 ```
-usage: python -m cli [-h] [--size MM] [--margin MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--no-label] [--font-size NUM] [--label-spacing MM] [-o PATH]
+usage: python -m cli [-h] [--size MM] [--margin MM] [--stride-x MM] [--stride-y MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--no-label] [--font-size NUM] [--label-spacing MM] [-o PATH]
 
 optional arguments:
   -h, --help            show this help message and exit
   --size MM             Base QR code size (in millimeters), default: 10
   --margin MM           Margin between QR codes (in millimeters), default: 2
+  --stride-x MM         Horizontal distance between QR code tiles (in millimeters), default: 0
+  --stride-y MM         Vertical distance between QR code tiles (in millimeters), default: 0
   --prefix STR          Number prefix, default: empty
   --suffix STR          Number suffix, default: empty
   --digits NUM          Number of digits, default: 5

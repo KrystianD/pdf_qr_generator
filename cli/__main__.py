@@ -8,6 +8,8 @@ def main():
     argparser = argparse.ArgumentParser(prog="python -m cli")
     argparser.add_argument('--size', type=float, default=10, metavar="MM", help="Base QR code size (in millimeters), default: 10")
     argparser.add_argument('--margin', type=float, default=2, metavar="MM", help="Margin between QR codes (in millimeters), default: 2")
+    argparser.add_argument('--stride-x', type=float, default=0, metavar="MM", help="Horizontal distance between QR code tiles (in millimeters), default: 0")
+    argparser.add_argument('--stride-y', type=float, default=0, metavar="MM", help="Vertical distance between QR code tiles (in millimeters), default: 0")
     argparser.add_argument('--prefix', type=str, default="", metavar="STR", help="Number prefix, default: empty")
     argparser.add_argument('--suffix', type=str, default="", metavar="STR", help="Number suffix, default: empty")
     argparser.add_argument('--digits', type=int, default=5, metavar="NUM", help="Number of digits, default: 5")
@@ -23,6 +25,8 @@ def main():
     f = generate(
             base_size_mm=args.size,
             margin_mm=args.margin,
+            stride_x_mm=args.stride_x,
+            stride_y_mm=args.stride_y,
             prefix=args.prefix,
             suffix=args.suffix,
             digits=args.digits,

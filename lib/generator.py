@@ -32,7 +32,8 @@ def mm(x):
     return x * reportlab.lib.units.mm
 
 
-def generate(base_size_mm: float = 10, margin_mm: float = 2, prefix: str = "", suffix: str = "", digits: int = 5, start: int = 0,
+def generate(base_size_mm: float = 10, margin_mm: float = 2, stride_x_mm: float = 0, stride_y_mm: float = 0,
+             prefix: str = "", suffix: str = "", digits: int = 5, start: int = 0,
              generate_label: bool = True, label_spacing_mm: float = 0.4, font_size: int = 5):
     f = BytesIO()
 
@@ -51,6 +52,9 @@ def generate(base_size_mm: float = 10, margin_mm: float = 2, prefix: str = "", s
 
     if generate_label:
         tile_height += label_height
+
+    stride_x = max(mm(stride_x_mm), tile_width)
+    stride_y = max(mm(stride_y_mm), tile_height)
 
     num = start
     pos_x = tile_margin
@@ -75,11 +79,11 @@ def generate(base_size_mm: float = 10, margin_mm: float = 2, prefix: str = "", s
 
             canvas.drawText(text_obj)
 
-        pos_x += tile_width
+        pos_x += stride_x
 
         if pos_x + tile_width > page_width:
             pos_x = tile_margin
-            pos_y -= tile_height
+            pos_y -= stride_y
 
             if pos_y - tile_height < tile_margin:
                 break
