@@ -26,8 +26,8 @@ python -m cli
 ## Advanced
 
 ```
-usage: python -m cli [-h] [--page-size SIZE] [--landscape] [--size MM] [--margin MM] [--stride-x MM] [--stride-y MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--no-label] [--font-size NUM]
-                     [--label-spacing MM] [-o PATH]
+usage: python -m cli [-h] [--page-size SIZE] [--landscape] [--size MM] [--margin MM] [--stride-x MM] [--stride-y MM] [--prefix STR] [--suffix STR] [--digits NUM] [--start NUM] [--pages NUM]
+                     [--no-label] [--font-size NUM] [--label-spacing MM] [-o PATH]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -41,6 +41,7 @@ optional arguments:
   --suffix STR          Number suffix, default: empty
   --digits NUM          Number of digits, default: 5
   --start NUM           Number to start with, default: 0
+  --pages NUM           Number of pages with QR codes to generate, default: 1
   --no-label            Skip label generation, default: to generate
   --font-size NUM       Font size for label text, default: 5
   --label-spacing MM    Vertical spacing between QR code and its label, default: 0.4

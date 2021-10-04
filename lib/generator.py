@@ -33,7 +33,7 @@ def mm(x):
 
 def generate(page_width_mm: float, page_height_mm: float,
              base_size_mm: float = 10, margin_mm: float = 2, stride_x_mm: float = 0, stride_y_mm: float = 0,
-             prefix: str = "", suffix: str = "", digits: int = 5, start: int = 0,
+             prefix: str = "", suffix: str = "", digits: int = 5, start: int = 0, pages: int = 1,
              generate_label: bool = True, label_spacing_mm: float = 0.4, font_size: int = 5):
     f = BytesIO()
 
@@ -58,6 +58,7 @@ def generate(page_width_mm: float, page_height_mm: float,
     stride_y = max(mm(stride_y_mm), tile_height)
 
     num = start
+    page = 0
     pos_x = tile_margin
     pos_y = page_height - tile_margin
     while True:
@@ -87,7 +88,11 @@ def generate(page_width_mm: float, page_height_mm: float,
             pos_y -= stride_y
 
             if pos_y - tile_height < tile_margin:
-                break
+                canvas.showPage()
+                page += 1
+                pos_y = page_height - tile_margin
+                if page == pages:
+                    break
 
     canvas.save()
 

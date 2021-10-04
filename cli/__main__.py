@@ -21,6 +21,7 @@ def main():
     argparser.add_argument('--suffix', type=str, default="", metavar="STR", help="Number suffix, default: empty")
     argparser.add_argument('--digits', type=int, default=5, metavar="NUM", help="Number of digits, default: 5")
     argparser.add_argument('--start', type=int, default=0, metavar="NUM", help="Number to start with, default: 0")
+    argparser.add_argument('--pages', type=int, default=1, metavar="NUM", help="Number of pages with QR codes to generate, default: 1")
     argparser.add_argument('--no-label', action="store_true", help="Skip label generation, default: to generate")
     argparser.add_argument('--font-size', type=float, default=5, metavar="NUM", help="Font size for label text, default: 5")
     argparser.add_argument('--label-spacing', type=float, default=0.4, metavar="MM", help="Vertical spacing between QR code and its label, default: 0.4")
@@ -53,6 +54,7 @@ def main():
             suffix=args.suffix,
             digits=args.digits,
             start=args.start,
+            pages=args.pages,
             generate_label=not args.no_label,
             label_spacing_mm=args.label_spacing,
             font_size=args.font_size,
