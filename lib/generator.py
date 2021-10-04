@@ -21,11 +21,6 @@ def gen_qr(data):
     return qr.make_image(fill_color="black", back_color="white")
 
 
-def cm(x):
-    import reportlab.lib.units
-    return x * reportlab.lib.units.cm
-
-
 def mm(x):
     import reportlab.lib.units
     return x * reportlab.lib.units.mm
