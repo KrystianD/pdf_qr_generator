@@ -27,7 +27,7 @@ def mm(x):
 
 
 def generate(page_width_mm: float, page_height_mm: float,
-             base_size_mm: float = 10, margin_mm: float = 2, stride_x_mm: float = 0, stride_y_mm: float = 0,
+             base_size_mm: float = 10, margin_x_mm: float = 2, margin_y_mm: float = 2, stride_x_mm: float = 0, stride_y_mm: float = 0,
              prefix: str = "", suffix: str = "", digits: int = 5, start: int = 0, pages: int = 1,
              generate_label: bool = True, label_spacing_mm: float = 0.4, font_size: int = 5):
     f = BytesIO()
@@ -41,10 +41,11 @@ def generate(page_width_mm: float, page_height_mm: float,
 
     tile_base_size = mm(base_size_mm)
 
-    tile_margin = mm(margin_mm)
+    tile_margin_x = mm(margin_x_mm)
+    tile_margin_y = mm(margin_y_mm)
 
-    tile_width = tile_base_size + tile_margin
-    tile_height = tile_base_size + tile_margin
+    tile_width = tile_base_size + tile_margin_x
+    tile_height = tile_base_size + tile_margin_y
 
     if generate_label:
         tile_height += label_height
@@ -54,8 +55,8 @@ def generate(page_width_mm: float, page_height_mm: float,
 
     num = start
     page = 0
-    pos_x = tile_margin
-    pos_y = page_height - tile_margin
+    pos_x = tile_margin_x
+    pos_y = page_height - tile_margin_y
     while True:
         txt = f"{prefix}{num:0{digits}}{suffix}"
         data_txt = f"V1.{txt}.{calc_crc(txt)}"
@@ -79,13 +80,13 @@ def generate(page_width_mm: float, page_height_mm: float,
         pos_x += stride_x
 
         if pos_x + tile_width > page_width:
-            pos_x = tile_margin
+            pos_x = tile_margin_x
             pos_y -= stride_y
 
-            if pos_y - tile_height < tile_margin:
+            if pos_y - tile_height < tile_margin_y:
                 canvas.showPage()
                 page += 1
-                pos_y = page_height - tile_margin
+                pos_y = page_height - tile_margin_y
                 if page == pages:
                     break
 

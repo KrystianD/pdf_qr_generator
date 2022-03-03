@@ -14,7 +14,8 @@ def main():
                            help="Page size. Possible values are predefined page format (A4, A5, etc) or dimensions millimeters (20x30), default: A4")
     argparser.add_argument('--landscape', action="store_true", help="Landscape orientation. For predefined formats only, default: portrait")
     argparser.add_argument('--size', type=float, default=10, metavar="MM", help="Base QR code size (in millimeters), default: 10")
-    argparser.add_argument('--margin', type=float, default=2, metavar="MM", help="Margin between QR codes (in millimeters), default: 2")
+    argparser.add_argument('--margin-x', type=float, default=2, metavar="MM", help="Horizontal margin between QR codes (in millimeters), default: 2")
+    argparser.add_argument('--margin-y', type=float, default=2, metavar="MM", help="Vertical margin between QR codes (in millimeters), default: 2")
     argparser.add_argument('--stride-x', type=float, default=0, metavar="MM", help="Horizontal distance between QR code tiles (in millimeters), default: 0")
     argparser.add_argument('--stride-y', type=float, default=0, metavar="MM", help="Vertical distance between QR code tiles (in millimeters), default: 0")
     argparser.add_argument('--prefix', type=str, default="", metavar="STR", help="Number prefix, default: empty")
@@ -47,7 +48,8 @@ def main():
             page_width_mm=page_width_mm,
             page_height_mm=page_height_mm,
             base_size_mm=args.size,
-            margin_mm=args.margin,
+            margin_x_mm=args.margin_x,
+            margin_y_mm=args.margin_y,
             stride_x_mm=args.stride_x,
             stride_y_mm=args.stride_y,
             prefix=args.prefix,
